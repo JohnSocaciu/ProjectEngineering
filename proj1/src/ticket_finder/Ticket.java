@@ -16,6 +16,7 @@ public class Ticket extends Application{
         stage.setScene(scene);
         stage.show();
         
+        System.out.println("Push Testing");
     }
     
     public static void main(String[] args){
