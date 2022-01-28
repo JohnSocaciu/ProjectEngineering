@@ -14,9 +14,9 @@
             "type": "java",
             "name": "Launch Ticket",
             "request": "launch",
-            "vmArgs": "--module-path C:/Users/John/Desktop/File of Java Projects/JavaFX/javafx-sdk-17.0.1/lib --add-modules javafx.controls,javafx.fxml", 
-            "mainClass": "ticket_finder.Ticket",
-            "projectName": "ProjectEngineering_e1b72d6a"
+            "mainClass": "Ticket_FXMLController",
+            "projectName": "ProjectEngineering_e1b72d6a",
+            "vmArgs": "--module-path C:/Users/John/Desktop/File of Java Projects/JavaFX/javafx-sdk-17.0.1/lib --add-modules javafx.controls,javafx.fxml" 
         }
     ]
 }
