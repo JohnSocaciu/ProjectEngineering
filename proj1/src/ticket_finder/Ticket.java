@@ -15,8 +15,6 @@ public class Ticket extends Application{
         stage.setTitle("Ticketing System");
         stage.setScene(scene);
         stage.show();
-        
-        System.out.println("Push Testing");
     }
     
     public static void main(String[] args){

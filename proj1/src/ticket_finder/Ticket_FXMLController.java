@@ -53,7 +53,7 @@ public class Ticket_FXMLController implements Initializable {
     @FXML
     private ListView<HBox> CartList;
     
-     @FXML
+    @FXML
     private Button clearButton;
     
     @FXML
