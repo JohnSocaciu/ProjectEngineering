@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Ticket",
+            "request": "launch",
+            "mainClass": "ticket_finder.Ticket",
+            "projectName": "ProjectEngineering_e1b72d6a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ticket",
+            "request": "launch",
+            "mainClass": "Ticket",
+            "projectName": "ProjectEngineering_e1b72d6a"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -14,8 +28,8 @@
             "type": "java",
             "name": "Launch Ticket",
             "request": "launch",
-            "vmArgs": "--module-path Users/John/Desktop/File of Java Projects/JavaFX/javafx-sdk-16/lib --add-modules javafx.controls,javafx.fxml",
-            "mainClass": "ticket_finder.Ticket",
+            "vmArgs": "--module-path C:/Users/John/Desktop/File of Java Projects/JavaFX/javafx-sdk-16/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "Ticket",
             "projectName": "ProjectEngineering_e1b72d6a"
         }
     ]
