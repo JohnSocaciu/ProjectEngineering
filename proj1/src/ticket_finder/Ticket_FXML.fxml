@@ -37,14 +37,14 @@
                            <font>
                               <Font name="Arial Bold" size="18.0" />
                            </font></TitledPane>
-                      <TitledPane fx:id="TeamPane" alignment="CENTER" text="Team" textFill="#2b4da1">
+                      <TitledPane fx:id="TeamPane" alignment="CENTER" text="Tickets" textFill="#2b4da1">
                            <font>
                               <Font name="Arial Bold" size="18.0" />
                            </font>
                            <content>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <ComboBox fx:id="comboBox" onAction="#select" prefHeight="32.0" prefWidth="406.0" promptText="                                     Select Your Team!" visibleRowCount="4" />
+                                    <ComboBox fx:id="comboBox" onAction="#select" prefHeight="32.0" prefWidth="406.0" promptText="                                     Select Your Tickets!" visibleRowCount="4" />
                                  </children>
                               </HBox>
                            </content></TitledPane>
@@ -391,6 +391,11 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                   </GridPane>
+                  <Label prefHeight="106.0" prefWidth="238.0" text="Select Your Seat!" textFill="#1c0dc4" translateY="-200.0">
+                     <font>
+                        <Font name="Cooper Black" size="27.0" />
+                     </font>
+                  </Label>
                </children>
             </StackPane>
             <VBox prefHeight="200.0" prefWidth="100.0">
@@ -434,3 +439,4 @@
       </SplitPane>
    </children>
 </VBox>
+
