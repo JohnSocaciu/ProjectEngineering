@@ -42,10 +42,8 @@ public class Ticket_FXMLController implements Initializable {
      */
     
     private ArrayList <String> selectedSeats = new ArrayList<String>();
-    private ArrayList <String> selectedTeams = new ArrayList<String>();
-    private int teamIndex = 0;
     private String [] itemList  = {"Bobblehead", "Thunder Stick", "Foam Paw", "T-Shirt", "Sweat Shirt", "Cap", "Knit Hat", "Mug", "Pennant"};
-    private String [] teamList = {"Redwings","Lions","Tigers","Pistons"};
+    private String [] teamList = {"Redwings Ticket","Lions Ticket","Tigers Ticket","Pistons Ticket"};
     
     @FXML
     private Label Price;
@@ -53,7 +51,7 @@ public class Ticket_FXMLController implements Initializable {
     @FXML
     private ListView<HBox> CartList;
     
-    @FXML
+     @FXML
     private Button clearButton;
     
     @FXML
@@ -79,17 +77,68 @@ public class Ticket_FXMLController implements Initializable {
 
     @FXML
     void select(ActionEvent event) {
-    String name = comboBox.getValue();
-    int price = 50; 
+    int price = 0;
+    String name = comboBox.getValue(); 
+    if      (name.equals("Redwings Ticket"))
+            {
+                price = 100; 
+            }
+    else if (name.equals("Lions Ticket"))
+            {
+                price = 200; 
+            }
+    else if (name.equals("Tigers Ticket"))
+            {
+                price = 150; 
+            }
+    else if (name.equals("Pistons Ticket"))
+            {
+                price = 175; 
+            }
     addItem(name,price); 
     calculateCartTotal(); 
     }
     
     @FXML
     void secondSelect(ActionEvent event) {
+    int price = 0; 
     String name = secondCombo.getValue(); 
-    int [] costs = {1,2,3,4,5,6,7,8}; 
-    int price = 10; 
+    if      (name.equals("Bobblehead"))
+            {
+                price = 5; 
+            }
+    else if (name.equals("Thunder Stick"))
+            {
+                price = 10; 
+            }
+    else if (name.equals("Foam Paw"))
+            {
+                price = 15; 
+            }
+    else if (name.equals("T-Shirt"))
+            {
+                price = 20; 
+            }
+    else if (name.equals("Sweat Shirt"))
+            {
+                price = 24; 
+            }
+    else if (name.equals("Cap"))
+            {
+                price = 3; 
+            }
+    else if (name.equals("Knit Hat"))
+            {
+                price = 30; 
+            }
+    else if (name.equals("Mug"))
+            {
+                price = 40; 
+            }
+    else if (name.equals("Pennant"))
+            {
+                price = 11; 
+            }
     addItem(name,price); 
     calculateCartTotal(); 
     }   
