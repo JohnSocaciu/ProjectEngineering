@@ -47,9 +47,9 @@ public class Ticket_FXMLController implements Initializable {
      * Initializes the controller class.
      */
 
-    private HashMap<String,Integer> merchandiseList = new HashMap<String,Integer>();
+    private HashMap<String, Integer> merchandiseList = new HashMap<String, Integer>();
     private String selectedTeam;
-    
+
     @FXML
     private Label Price;
 
@@ -76,13 +76,13 @@ public class Ticket_FXMLController implements Initializable {
 
     @FXML
     private ComboBox<String> secondCombo = new ComboBox<String>();
-    
+
     @FXML
     private Label TeamSeatSelectionText;
-    
+
     @FXML
     private Button seasonPassBtn;
-    
+
     @FXML
     void clearSelections(ActionEvent event) {
         Price.setText("$0");
@@ -98,45 +98,44 @@ public class Ticket_FXMLController implements Initializable {
 
     @FXML
     void secondSelect(ActionEvent event) {
-        int price = 0;
         String name = secondCombo.getValue();
         int value = merchandiseList.get(name);
-        addItem(name,"Merchandise",value);
-        //calculateCartTotal();
+        addItem(name, "Merchandise", value);
+        // calculateCartTotal();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        //Add team names to comboBox from Teams file
+
+        // Add team names to comboBox from Teams file
         Scanner infile;
-        try{
+        try {
             infile = new Scanner(new File("ProjectEngineering/proj1/src/Teams.txt"));
-            while(infile.hasNext()){
+            while (infile.hasNext()) {
                 String teamName = infile.nextLine();
                 comboBox.getItems().add(teamName);
-                //System.out.println(teamName);
-                
+                // System.out.println(teamName);
+
             }
             infile.close();
-        }catch(FileNotFoundException ex){
+        } catch (FileNotFoundException ex) {
             System.out.println("Error opening file.");
-        }        
-        
-        //Add merchanise and pricing from merchandise file. Must follow -> Name,Price
-        try{
+        }
+
+        // Add merchanise and pricing from merchandise file. Must follow -> Name,Price
+        try {
             infile = new Scanner(new File("ProjectEngineering/proj1/src/Merchandise.txt"));
-            while(infile.hasNext()){
+            while (infile.hasNext()) {
                 String[] merchandise = infile.nextLine().split(",");
-                
+
                 String merchandiseName = merchandise[0];
                 int MerchandiseCost = Integer.parseInt(merchandise[1]);
                 merchandiseList.put(merchandiseName, MerchandiseCost);
-                
+
                 secondCombo.getItems().add(merchandiseName);
             }
             infile.close();
-        }catch(FileNotFoundException ex){
+        } catch (FileNotFoundException ex) {
             System.out.println("Error opening file.");
         }
     }
@@ -149,56 +148,65 @@ public class Ticket_FXMLController implements Initializable {
 
     @FXML
     public void addARowTicket(ActionEvent event) {
-        if(selectedTeam == null){ return; }
-        
+        if (selectedTeam == null) {
+            return;
+        }
+
         int price = 100;
 
         Button button = (Button) event.getSource();
         String seatID = button.getText();
-        String ticket_name = seatID+"-"+selectedTeam;
-        
-        if(!cartHas(ticket_name)){
-            addItem(ticket_name,"Seat",price);
+        String ticket_name = seatID + "-" + selectedTeam;
+
+        if (!cartHas(ticket_name)) {
+            addItem(ticket_name, "Seat", price);
         }
     }
 
     @FXML
     public void addBRowTicket(ActionEvent event) {
-        if(selectedTeam == null){ return; }
+        if (selectedTeam == null) {
+            return;
+        }
         int price = 50;
 
         Button button = (Button) event.getSource();
         String seatID = button.getText();
-        String ticket_name = seatID+"-"+selectedTeam;
-        
-        if(!cartHas(ticket_name)){
-            addItem(ticket_name,"Seat",price);
+        String ticket_name = seatID + "-" + selectedTeam;
+
+        if (!cartHas(ticket_name)) {
+            addItem(ticket_name, "Seat", price);
         }
     }
 
     @FXML
     public void addCRowTicket(ActionEvent event) {
-        if(selectedTeam == null){ return; }
+        if (selectedTeam == null) {
+            return;
+        }
         int price = 25;
 
         Button button = (Button) event.getSource();
         String seatID = button.getText();
-        String ticket_name = seatID+"-"+selectedTeam;
-        
-        if(!cartHas(ticket_name)){
-            addItem(ticket_name,"Seat",price);
+        String ticket_name = seatID + "-" + selectedTeam;
+
+        if (!cartHas(ticket_name)) {
+            addItem(ticket_name, "Seat", price);
         }
     }
-    
+
     @FXML
-    private void addSeasonPass(ActionEvent event){
-        if(selectedTeam == null){return;}
+    private void addSeasonPass(ActionEvent event) {
+        if (selectedTeam == null) {
+            return;
+        }
         int price = 500;
         String ticket_type = "Season Pass";
-        if(!cartHas(selectedTeam)){
-            addItem(selectedTeam,ticket_type,price);
+        if (!cartHas(selectedTeam)) {
+            addItem(selectedTeam, ticket_type, price);
         }
     }
+
     private void addItem(String name, String type, int price) {
 
         HBox box = new HBox();
@@ -210,25 +218,26 @@ public class Ticket_FXMLController implements Initializable {
         HBox.setHgrow(priceLabel, Priority.ALWAYS);
         nameLabel.setMaxWidth(Double.MAX_VALUE);
         typeLabel.setMaxWidth(Double.MAX_VALUE);
-            
-        box.getChildren().addAll(nameLabel,typeLabel, priceLabel);
-        
+
+        box.getChildren().addAll(nameLabel, typeLabel, priceLabel);
+
         CartList.getItems().add(box);
         calculateCartTotal();
     }
-    
-    //Searches the cart by the name field and returns true or false if found or not.
-    private boolean cartHas(String name){
+
+    // Searches the cart by the name field and returns true or false if found or
+    // not.
+    private boolean cartHas(String name) {
         boolean hasValue = false;
-        
+
         for (HBox entry : CartList.getItems()) {
             Node n = entry.getChildren().get(0);
             String item_name = ((Label) n).getText();
-            
-            if(item_name.equals(name)){
+
+            if (item_name.equals(name)) {
                 hasValue = true;
             }
-        }   
+        }
         return hasValue;
     }
 
