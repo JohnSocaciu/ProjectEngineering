@@ -44,7 +44,7 @@
                            <content>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <ComboBox fx:id="comboBox" onAction="#select" prefHeight="32.0" prefWidth="406.0" promptText="                                     Select Your Tickets!" visibleRowCount="4" />
+                                    <ComboBox fx:id="comboBox" onAction="#select" prefHeight="32.0" prefWidth="406.0" promptText="                                   Select Your Tickets!" visibleRowCount="4" />
                                  </children>
                               </HBox>
                            </content></TitledPane>
@@ -433,6 +433,11 @@
                         </Button>
                      </children>
                   </HBox>
+                  <Button fx:id="closeButton" mnemonicParsing="false" onAction="#exitButton" prefHeight="47.0" prefWidth="307.0" text="Exit" textFill="#e40303">
+                     <font>
+                        <Font name="Arial Bold" size="24.0" />
+                     </font>
+                  </Button>
                </children>
             </VBox>
         </items>
