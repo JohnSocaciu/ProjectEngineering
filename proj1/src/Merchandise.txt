@@ -1,0 +1,9 @@
+Bobblehead,5
+Thunder Stick,10
+Foam Paw,15
+T-Shirt,20
+Sweat Shirt,24
+Cap,3
+Knit Hat,30
+Mug,40
+Pennant,11

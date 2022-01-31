@@ -30,6 +30,11 @@ import javafx.collections.FXCollections;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
  * FXML Controller class
@@ -42,11 +47,9 @@ public class Ticket_FXMLController implements Initializable {
      * Initializes the controller class.
      */
 
-    private ArrayList<String> selectedSeats = new ArrayList<String>();
-    private String[] itemList = { "Bobblehead", "Thunder Stick", "Foam Paw", "T-Shirt", "Sweat Shirt", "Cap",
-            "Knit Hat", "Mug", "Pennant" };
-    private String[] teamList = { "Redwings Ticket", "Lions Ticket", "Tigers Ticket", "Pistons Ticket" };
-
+    private HashMap<String,Integer> merchandiseList = new HashMap<String,Integer>();
+    private String selectedTeam;
+    
     @FXML
     private Label Price;
 
@@ -73,64 +76,69 @@ public class Ticket_FXMLController implements Initializable {
 
     @FXML
     private ComboBox<String> secondCombo = new ComboBox<String>();
-
+    
+    @FXML
+    private Label TeamSeatSelectionText;
+    
+    @FXML
+    private Button seasonPassBtn;
+    
     @FXML
     void clearSelections(ActionEvent event) {
         Price.setText("$0");
+        selectedTeam = null;
         CartList.getItems().clear();
     }
 
     @FXML
     void select(ActionEvent event) {
-        int price = 0;
-        String name = comboBox.getValue();
-        if (name.equals("Redwings Ticket")) {
-            price = 100;
-        } else if (name.equals("Lions Ticket")) {
-            price = 200;
-        } else if (name.equals("Tigers Ticket")) {
-            price = 150;
-        } else if (name.equals("Pistons Ticket")) {
-            price = 175;
-        }
-        addItem(name, price);
-        calculateCartTotal();
+        selectedTeam = comboBox.getValue();
+        TeamSeatSelectionText.setText(selectedTeam);
     }
 
     @FXML
     void secondSelect(ActionEvent event) {
         int price = 0;
         String name = secondCombo.getValue();
-        if (name.equals("Bobblehead")) {
-            price = 5;
-        } else if (name.equals("Thunder Stick")) {
-            price = 10;
-        } else if (name.equals("Foam Paw")) {
-            price = 15;
-        } else if (name.equals("T-Shirt")) {
-            price = 20;
-        } else if (name.equals("Sweat Shirt")) {
-            price = 24;
-        } else if (name.equals("Cap")) {
-            price = 3;
-        } else if (name.equals("Knit Hat")) {
-            price = 30;
-        } else if (name.equals("Mug")) {
-            price = 40;
-        } else if (name.equals("Pennant")) {
-            price = 11;
-        }
-        addItem(name, price);
-        calculateCartTotal();
+        int value = merchandiseList.get(name);
+        addItem(name,"Merchandise",value);
+        //calculateCartTotal();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-        comboBox.getItems().addAll(teamList);
-
-        secondCombo.getItems().addAll(itemList);
-
+        
+        //Add team names to comboBox from Teams file
+        Scanner infile;
+        try{
+            infile = new Scanner(new File("ProjectEngineering/proj1/src/Teams.txt"));
+            while(infile.hasNext()){
+                String teamName = infile.nextLine();
+                comboBox.getItems().add(teamName);
+                //System.out.println(teamName);
+                
+            }
+            infile.close();
+        }catch(FileNotFoundException ex){
+            System.out.println("Error opening file.");
+        }        
+        
+        //Add merchanise and pricing from merchandise file. Must follow -> Name,Price
+        try{
+            infile = new Scanner(new File("ProjectEngineering/proj1/src/Merchandise.txt"));
+            while(infile.hasNext()){
+                String[] merchandise = infile.nextLine().split(",");
+                
+                String merchandiseName = merchandise[0];
+                int MerchandiseCost = Integer.parseInt(merchandise[1]);
+                merchandiseList.put(merchandiseName, MerchandiseCost);
+                
+                secondCombo.getItems().add(merchandiseName);
+            }
+            infile.close();
+        }catch(FileNotFoundException ex){
+            System.out.println("Error opening file.");
+        }
     }
 
     @FXML
@@ -141,75 +149,93 @@ public class Ticket_FXMLController implements Initializable {
 
     @FXML
     public void addARowTicket(ActionEvent event) {
-        int price = 500;
-
-        Button button = (Button) event.getSource();
-        String seatID = button.getText();
-
-        if (selectedSeats.contains(seatID)) {
-            removeItem(seatID);
-        } else {
-            addItem(seatID, price);
-        }
-        calculateCartTotal();
-    }
-
-    @FXML
-    public void addBRowTicket(ActionEvent event) {
+        if(selectedTeam == null){ return; }
+        
         int price = 100;
 
         Button button = (Button) event.getSource();
         String seatID = button.getText();
-
-        if (selectedSeats.contains(seatID)) {
-            removeItem(seatID);
-        } else {
-            addItem(seatID, price);
+        String ticket_name = seatID+"-"+selectedTeam;
+        
+        if(!cartHas(ticket_name)){
+            addItem(ticket_name,"Seat",price);
         }
-        calculateCartTotal();
     }
 
     @FXML
-    public void addCRowTicket(ActionEvent event) {
+    public void addBRowTicket(ActionEvent event) {
+        if(selectedTeam == null){ return; }
         int price = 50;
 
         Button button = (Button) event.getSource();
         String seatID = button.getText();
-
-        if (selectedSeats.contains(seatID)) {
-            removeItem(seatID);
-        } else {
-            addItem(seatID, price);
+        String ticket_name = seatID+"-"+selectedTeam;
+        
+        if(!cartHas(ticket_name)){
+            addItem(ticket_name,"Seat",price);
         }
-        calculateCartTotal();
     }
 
-    private void addItem(String name, int price) {
+    @FXML
+    public void addCRowTicket(ActionEvent event) {
+        if(selectedTeam == null){ return; }
+        int price = 25;
+
+        Button button = (Button) event.getSource();
+        String seatID = button.getText();
+        String ticket_name = seatID+"-"+selectedTeam;
+        
+        if(!cartHas(ticket_name)){
+            addItem(ticket_name,"Seat",price);
+        }
+    }
+    
+    @FXML
+    private void addSeasonPass(ActionEvent event){
+        if(selectedTeam == null){return;}
+        int price = 500;
+        String ticket_type = "Season Pass";
+        if(!cartHas(selectedTeam)){
+            addItem(selectedTeam,ticket_type,price);
+        }
+    }
+    private void addItem(String name, String type, int price) {
 
         HBox box = new HBox();
         Label nameLabel = new Label(name);
+        Label typeLabel = new Label(type);
         Label priceLabel = new Label("$" + price);
         HBox.setHgrow(nameLabel, Priority.ALWAYS);
+        HBox.setHgrow(typeLabel, Priority.ALWAYS);
         HBox.setHgrow(priceLabel, Priority.ALWAYS);
         nameLabel.setMaxWidth(Double.MAX_VALUE);
-        nameLabel.setMaxWidth(Double.MAX_VALUE);
-
-        box.getChildren().addAll(nameLabel, priceLabel);
-
+        typeLabel.setMaxWidth(Double.MAX_VALUE);
+            
+        box.getChildren().addAll(nameLabel,typeLabel, priceLabel);
+        
         CartList.getItems().add(box);
-        selectedSeats.add(name);
+        calculateCartTotal();
     }
-
-    private void removeItem(String name) {
-
-        CartList.getItems().remove(selectedSeats.indexOf(name));
-        selectedSeats.remove(name);
+    
+    //Searches the cart by the name field and returns true or false if found or not.
+    private boolean cartHas(String name){
+        boolean hasValue = false;
+        
+        for (HBox entry : CartList.getItems()) {
+            Node n = entry.getChildren().get(0);
+            String item_name = ((Label) n).getText();
+            
+            if(item_name.equals(name)){
+                hasValue = true;
+            }
+        }   
+        return hasValue;
     }
 
     private void calculateCartTotal() {
         int total = 0;
         for (HBox entry : CartList.getItems()) {
-            Node n = entry.getChildren().get(1);
+            Node n = entry.getChildren().get(2);
             String priceText = ((Label) n).getText();
             int price = Integer.parseInt(priceText.substring(1));
             total = total + price;
