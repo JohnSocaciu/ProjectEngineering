@@ -1,25 +1,48 @@
-<mxfile host="app.diagrams.net" modified="2022-02-16T19:27:00.892Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.46" etag="Ew1vXBOSfS3P8sMnpRqD" version="16.5.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-02-16T19:59:09.650Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.46" etag="CP4bufD9T5H-zXXkvkAH" version="16.5.2" type="github">
   <diagram id="G0a5rTJstnCS9OJ3iDOe" name="Page-1">
-    <mxGraphModel dx="861" dy="482" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2080" dy="689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="OTE1M0cdYOsggPZU6h2--20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=15;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="OTE1M0cdYOsggPZU6h2--1" target="OTE1M0cdYOsggPZU6h2--16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="455.28571428571445" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="OTE1M0cdYOsggPZU6h2--1" value="0" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
-          <mxGeometry x="380" y="130" width="120" height="150" as="geometry">
+          <mxGeometry x="340" y="380" width="120" height="150" as="geometry">
             <mxRectangle x="390" y="170" width="40" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="OTE1M0cdYOsggPZU6h2--2" value="         &#xa;&#xa;Ticket GUI " style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=15;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="OTE1M0cdYOsggPZU6h2--1">
           <mxGeometry y="30" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="OTE1M0cdYOsggPZU6h2--5" value="User" style="html=1;fontSize=15;" vertex="1" parent="1">
-          <mxGeometry x="90" y="140" width="130" height="120" as="geometry" />
+        <mxCell id="OTE1M0cdYOsggPZU6h2--18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontSize=15;" edge="1" parent="1" source="OTE1M0cdYOsggPZU6h2--5" target="OTE1M0cdYOsggPZU6h2--1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="OTE1M0cdYOsggPZU6h2--6" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;fontSize=15;entryX=0;entryY=0.333;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="OTE1M0cdYOsggPZU6h2--2">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="220" y="200" as="sourcePoint" />
-            <mxPoint x="370" y="200" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="OTE1M0cdYOsggPZU6h2--5" value="User" style="html=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="140" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="OTE1M0cdYOsggPZU6h2--7" value="Selected Team, &lt;br&gt;Merchandise, &lt;br&gt;Season Pass, &lt;br&gt;and Seat Selections" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="220" y="250" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="OTE1M0cdYOsggPZU6h2--9" value="&lt;p style=&quot;line-height: 1.1 ; font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Individual And&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 1.1 ; font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;span&gt;Total&amp;nbsp;&lt;/span&gt;&lt;span&gt;Price&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 1.1 ; font-size: 16px&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Associated&amp;nbsp;With Inputs&lt;/font&gt;&lt;/p&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="-25" y="300" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="OTE1M0cdYOsggPZU6h2--17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;fontSize=15;" edge="1" parent="1" source="OTE1M0cdYOsggPZU6h2--16" target="OTE1M0cdYOsggPZU6h2--1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OTE1M0cdYOsggPZU6h2--16" value="Merchandise.txt &lt;br&gt;and Team.txt files" style="html=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="530" y="140" width="140" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="OTE1M0cdYOsggPZU6h2--19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=15;" edge="1" parent="1" source="OTE1M0cdYOsggPZU6h2--2" target="OTE1M0cdYOsggPZU6h2--5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OTE1M0cdYOsggPZU6h2--21" value="Inputted Teams and &lt;br&gt;Merchandise Into &lt;br&gt;Combo Boxes" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="430" y="290" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OTE1M0cdYOsggPZU6h2--22" value="Prices Associated &lt;br&gt;With Products" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="610" y="360" width="130" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
